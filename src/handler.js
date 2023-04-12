@@ -68,7 +68,8 @@ const saveBook = (request, h) => {
 const getAllBooks = (request, h) => {
   const { name, reading, finished } = request.query;
   if (name) {
-    const trueName = books.filter((book) => book.name.toLowerCase().includes(name));
+    const lower = name.toLowerCase();
+    const trueName = books.filter((book) => book.name.toLowerCase().includes(lower));
     const nameTrue = trueName.map((book) => ({
       id: book.id,
       name: book.name,
